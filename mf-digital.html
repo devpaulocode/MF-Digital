@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MF Digital — Agência de Marketing Digital, Sites e Tráfego Pago</title>
+<meta name="description" content="Agência digital especializada em criação de sites, tráfego pago e marketing digital. Transformamos negócios em máquinas de vendas online." />
+<meta property="og:title" content="MF Digital — Agência Digital Premium" />
+<meta property="og:description" content="Sites profissionais, tráfego pago e estratégias digitais para vender mais." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080B14; --card:rgba(10,15,30,.6); --border:rgba(255,255,255,.08);
+    --text:#E8ECF5; --muted:#8B92A8; --primary:#00C2FF; --accent:#7B2FFF;
+    --neon:linear-gradient(135deg,#00C2FF 0%,#7B2FFF 100%);
+    --neon-soft:linear-gradient(135deg,rgba(0,194,255,.15),rgba(123,47,255,.15));
+    --shadow-neon:0 10px 40px -10px rgba(0,194,255,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);
+    line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Syne',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  .gradient-text{background:var(--neon);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;
+    font-weight:600;font-size:15px;cursor:pointer;border:none;transition:all .3s ease;
+  }
+  .btn-primary{background:var(--neon);color:#fff;box-shadow:var(--shadow-neon)}
+  .btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 15px 50px -10px rgba(0,194,255,.6)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+  .tag{
+    display:inline-block;padding:6px 14px;border:1px solid var(--border);background:rgba(255,255,255,.03);
+    border-radius:999px;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);
+  }
+  .glass{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:20px}
+  section{padding:96px 0;position:relative}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .section-head h2{font-size:clamp(2rem,4vw,3rem);margin:16px 0}
+  .section-head p{color:var(--muted);font-size:1.1rem}
+
+  /* NAVBAR */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:all .3s ease;padding:18px 0}
+  .nav.scrolled{background:rgba(8,11,20,.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Syne',sans-serif;font-size:22px;font-weight:800}
+  .nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{font-size:14px;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;width:40px;height:40px}
+  .menu-btn span{display:block;width:22px;height:2px;background:var(--text);margin:5px auto;transition:.3s}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:120px;position:relative;overflow:hidden}
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 20% 30%,rgba(0,194,255,.15),transparent 50%),
+      radial-gradient(circle at 80% 70%,rgba(123,47,255,.15),transparent 50%);
+    z-index:0;
+  }
+  .grid-bg{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(0,194,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,194,255,.05) 1px,transparent 1px);
+    background-size:50px 50px;animation:gridPan 20s linear infinite;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 70%);
+    z-index:0;
+  }
+  @keyframes gridPan{to{background-position:50px 50px}}
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,5.5vw,4.5rem);margin:20px 0}
+  .hero p.lead{font-size:1.2rem;color:var(--muted);margin-bottom:32px;max-width:540px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+  .stats{display:flex;gap:40px;flex-wrap:wrap}
+  .stat .num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:var(--neon);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted)}
+  .hero-mock{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:24px;box-shadow:var(--shadow-neon);backdrop-filter:blur(20px)}
+  .mock-bar{display:flex;gap:6px;margin-bottom:20px}
+  .mock-bar span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.15)}
+  .mock-chart{height:200px;background:var(--neon-soft);border-radius:12px;position:relative;overflow:hidden}
+  .mock-chart svg{position:absolute;inset:0;width:100%;height:100%}
+  .mock-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .mock-cards div{height:60px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid var(--border)}
+
+  /* MARQUEE */
+  .marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 0;background:rgba(0,0,0,.3);overflow:hidden}
+  .marquee-label{text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.3em;color:var(--muted);margin-bottom:24px}
+  .marquee{display:flex;gap:60px;animation:marquee 30s linear infinite;width:max-content}
+  .marquee div{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:600;color:var(--muted);white-space:nowrap}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .service{padding:28px;border-radius:20px;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(20px);transition:all .3s ease}
+  .service:hover{transform:translateY(-6px);border-color:rgba(0,194,255,.3);box-shadow:var(--shadow-neon)}
+  .service .icon{width:52px;height:52px;border-radius:14px;background:var(--neon-soft);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--primary)}
+  .service h3{font-size:1.15rem;margin-bottom:8px}
+  .service p{font-size:.92rem;color:var(--muted)}
+
+  /* ABOUT / BENEFITS */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about h2{font-size:clamp(2rem,4vw,3rem);margin:16px 0}
+  .about p{color:var(--muted);margin-bottom:16px;font-size:1.05rem}
+  .benefits-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+  .benefits-list li{display:flex;gap:10px;align-items:flex-start;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:12px;font-size:.92rem}
+  .check{width:24px;height:24px;border-radius:50%;background:var(--neon);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:13px;font-weight:700}
+  .big-stat{padding:32px;border-radius:20px;background:var(--card);border:1px solid var(--border);text-align:center;margin-top:32px}
+  .big-stat .n{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;background:var(--neon);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .big-stat .l{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);margin-top:8px}
+
+  /* PORTFOLIO */
+  .filters{display:flex;gap:8px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+  .filter{padding:8px 18px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:13px;cursor:pointer;transition:all .2s}
+  .filter.active,.filter:hover{background:var(--neon);color:#fff;border-color:transparent}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .project{border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:all .3s ease}
+  .project:hover{transform:translateY(-4px)}
+  .project-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative}
+  .project-img .browser{width:80%;background:rgba(8,11,20,.85);border-radius:12px;padding:14px;backdrop-filter:blur(10px)}
+  .project-img .browser .dots{display:flex;gap:5px;margin-bottom:10px}
+  .project-img .browser .dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2)}
+  .project-img .browser .line{height:5px;background:rgba(255,255,255,.15);border-radius:3px;margin:5px 0}
+  .project-info{padding:20px}
+  .project-info h3{font-size:1.1rem}
+  .project-info p{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-top:4px}
+
+  /* TESTIMONIALS */
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .test{padding:28px;border-radius:20px;background:var(--card);border:1px solid var(--border)}
+  .stars{color:#FFB23D;margin-bottom:14px;font-size:14px}
+  .test p{font-size:.98rem;margin-bottom:20px}
+  .test-author{display:flex;gap:12px;align-items:center;padding-top:18px;border-top:1px solid var(--border)}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--neon);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;color:#fff;font-size:14px}
+  .test-author .name{font-weight:600;font-size:.92rem}
+  .test-author .role{font-size:.8rem;color:var(--muted)}
+
+  /* CONTACT */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+  .contact-info h2{font-size:clamp(2rem,4vw,2.8rem);margin:16px 0}
+  .contact-info p{color:var(--muted);margin-bottom:24px}
+  .contact-info ul{list-style:none}
+  .contact-info li{display:flex;gap:12px;align-items:center;margin-bottom:14px;color:var(--muted);font-size:.95rem}
+  form{padding:32px;border-radius:20px;background:var(--card);border:1px solid var(--border)}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+  .field input,.field select,.field textarea{
+    width:100%;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border);
+    border-radius:10px;color:var(--text);font-family:inherit;font-size:14px;transition:border-color .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary)}
+  .field textarea{resize:vertical;min-height:110px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:64px 0 32px;background:rgba(0,0,0,.3)}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+  .foot-grid h4{font-family:'Syne',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:16px}
+  .foot-grid ul{list-style:none}
+  .foot-grid li{margin-bottom:10px}
+  .foot-grid a{color:var(--muted);font-size:.92rem;transition:color .2s}
+  .foot-grid a:hover{color:var(--text)}
+  .socials{display:flex;gap:10px;margin-top:18px}
+  .socials a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s}
+  .socials a:hover{background:var(--neon);color:#fff;border-color:transparent}
+  .copyright{border-top:1px solid var(--border);padding-top:24px;text-align:center;color:var(--muted);font-size:.85rem}
+
+  /* WHATSAPP FLOAT */
+  .wpp{
+    position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;
+    background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;
+    color:#fff;z-index:40;box-shadow:0 10px 30px rgba(37,211,102,.4);animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}50%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero-inner,.about,.contact-wrap{grid-template-columns:1fr;gap:40px}
+    .services-grid{grid-template-columns:repeat(2,1fr)}
+    .portfolio-grid,.test-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+    .benefits-list{grid-template-columns:1fr}
+    .nav-links,.nav .btn{display:none}
+    .menu-btn{display:block}
+    .nav.open .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(8,11,20,.95);backdrop-filter:blur(20px);padding:20px;gap:16px;border-bottom:1px solid var(--border)}
+    section{padding:64px 0}
+  }
+  @media(max-width:600px){
+    .services-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo"><span class="gradient-text">MF</span> Digital</a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+    <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="container hero-inner">
+    <div class="reveal">
+      <span class="tag">Agência Digital Premium</span>
+      <h1>Construímos <span class="gradient-text">máquinas de vendas</span> digitais</h1>
+      <p class="lead">Sites profissionais, tráfego pago e estratégias de marketing digital que transformam sua marca em referência no mercado.</p>
+      <div class="hero-ctas">
+        <a href="#contato" class="btn btn-primary">Começar agora →</a>
+        <a href="#portfolio" class="btn btn-ghost">Ver portfólio</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num" data-count="120">+0</div><div class="lbl">Clientes</div></div>
+        <div class="stat"><div class="num" data-count="300">+0</div><div class="lbl">Projetos</div></div>
+        <div class="stat"><div class="num" data-count="5">+0</div><div class="lbl">Anos</div></div>
+      </div>
+    </div>
+    <div class="hero-mock reveal">
+      <div class="mock-bar"><span></span><span></span><span></span></div>
+      <div class="mock-chart">
+        <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00C2FF" stop-opacity=".6"/><stop offset="100%" stop-color="#7B2FFF" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0 150 Q 80 100 120 110 T 240 60 T 400 30 L 400 200 L 0 200 Z" fill="url(#g)"/>
+          <path d="M0 150 Q 80 100 120 110 T 240 60 T 400 30" fill="none" stroke="#00C2FF" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <div class="mock-cards"><div></div><div></div><div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<div class="marquee-wrap">
+  <p class="marquee-label">Empresas que confiam na MF Digital</p>
+  <div class="marquee">
+    <div>Nova Fitness</div><div>Lumen Café</div><div>Studio Aurora</div><div>Vértice Imóveis</div>
+    <div>Próspera</div><div>Atelier Marina</div><div>Orbe Tech</div><div>Verano Studio</div>
+    <div>Nova Fitness</div><div>Lumen Café</div><div>Studio Aurora</div><div>Vértice Imóveis</div>
+    <div>Próspera</div><div>Atelier Marina</div><div>Orbe Tech</div><div>Verano Studio</div>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container about">
+    <div class="reveal">
+      <span class="tag">Sobre nós</span>
+      <h2>Estratégia, design e tecnologia em <span class="gradient-text">um só lugar</span></h2>
+      <p>Somos uma agência digital especializada em transformar marcas em verdadeiras máquinas de vendas online. Combinamos criatividade, dados e tecnologia para entregar resultados reais.</p>
+      <p>Atendemos pequenas, médias e grandes empresas com soluções personalizadas para cada objetivo.</p>
+      <a href="#contato" class="btn btn-primary" style="margin-top:16px">Fale conosco →</a>
+    </div>
+    <div class="reveal">
+      <div class="big-stat">
+        <div class="n">+300</div>
+        <div class="l">Projetos entregues</div>
+      </div>
+      <ul class="benefits-list">
+        <li><span class="check">✓</span> Equipe especializada</li>
+        <li><span class="check">✓</span> Atendimento humano</li>
+        <li><span class="check">✓</span> Resultados mensuráveis</li>
+        <li><span class="check">✓</span> Transparência total</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">Serviços</span>
+      <h2>Soluções completas para <span class="gradient-text">crescer no digital</span></h2>
+      <p>Da estratégia à execução, tudo o que sua marca precisa para vender mais.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service reveal"><div class="icon">📈</div><h3>Tráfego Pago</h3><p>Campanhas no Google e Meta Ads otimizadas para conversão.</p></div>
+      <div class="service reveal"><div class="icon">💻</div><h3>Criação de Sites</h3><p>Sites profissionais, rápidos e otimizados para SEO.</p></div>
+      <div class="service reveal"><div class="icon">🎯</div><h3>Landing Pages</h3><p>Páginas de alta conversão para suas campanhas.</p></div>
+      <div class="service reveal"><div class="icon">📣</div><h3>Marketing Digital</h3><p>Estratégias completas para presença online.</p></div>
+      <div class="service reveal"><div class="icon">📱</div><h3>Redes Sociais</h3><p>Gestão profissional do seu Instagram e Facebook.</p></div>
+      <div class="service reveal"><div class="icon">🎨</div><h3>Branding</h3><p>Criação de identidade visual marcante.</p></div>
+      <div class="service reveal"><div class="icon">🔍</div><h3>SEO</h3><p>Apareça nas primeiras posições do Google.</p></div>
+      <div class="service reveal"><div class="icon">✨</div><h3>Consultoria</h3><p>Análise estratégica e plano de crescimento.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">Portfólio</span>
+      <h2>Projetos que viraram <span class="gradient-text">cases de sucesso</span></h2>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-f="all">Todos</button>
+      <button class="filter" data-f="sites">Sites</button>
+      <button class="filter" data-f="camp">Campanhas</button>
+      <button class="filter" data-f="brand">Branding</button>
+    </div>
+    <div class="portfolio-grid" id="portfolio-grid">
+      <article class="project reveal" data-cat="sites"><div class="project-img" style="background:linear-gradient(135deg,#00C2FF,#7B2FFF)"><div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="line" style="width:60%"></div><div class="line" style="width:80%"></div><div class="line" style="width:40%"></div></div></div><div class="project-info"><h3>Nova Fitness</h3><p>Site institucional</p></div></article>
+      <article class="project reveal" data-cat="camp"><div class="project-img" style="background:linear-gradient(135deg,#7B2FFF,#FF2F8C)"><div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="line" style="width:70%"></div><div class="line" style="width:50%"></div><div class="line" style="width:60%"></div></div></div><div class="project-info"><h3>Lumen Café</h3><p>Campanha Meta Ads</p></div></article>
+      <article class="project reveal" data-cat="brand"><div class="project-img" style="background:linear-gradient(135deg,#00C2FF,#00FFB3)"><div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="line" style="width:50%"></div><div class="line" style="width:70%"></div><div class="line" style="width:30%"></div></div></div><div class="project-info"><h3>Studio Aurora</h3><p>Identidade visual</p></div></article>
+      <article class="project reveal" data-cat="sites"><div class="project-img" style="background:linear-gradient(135deg,#FF6B35,#7B2FFF)"><div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="line" style="width:80%"></div><div class="line" style="width:40%"></div><div class="line" style="width:60%"></div></div></div><div class="project-info"><h3>Vértice Imóveis</h3><p>Site + Landing Page</p></div></article>
+      <article class="project reveal" data-cat="camp"><div class="project-img" style="background:linear-gradient(135deg,#7B2FFF,#00C2FF)"><div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="line" style="width:60%"></div><div class="line" style="width:80%"></div><div class="line" style="width:50%"></div></div></div><div class="project-info"><h3>Próspera</h3><p>Google Ads</p></div></article>
+      <article class="project reveal" data-cat="brand"><div class="project-img" style="background:linear-gradient(135deg,#FFB23D,#FF2F8C)"><div class="browser"><div class="dots"><span></span><span></span><span></span></div><div class="line" style="width:70%"></div><div class="line" style="width:50%"></div><div class="line" style="width:40%"></div></div></div><div class="project-info"><h3>Atelier Marina</h3><p>Branding completo</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag">Depoimentos</span>
+      <h2>O que dizem <span class="gradient-text">nossos clientes</span></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test reveal">
+        <div class="stars">★★★★★</div>
+        <p>"A MF Digital transformou completamente o digital da nossa empresa. Em 3 meses dobramos o faturamento."</p>
+        <div class="test-author"><div class="avatar">CS</div><div><div class="name">Carlos Silva</div><div class="role">CEO, Nova Fitness</div></div></div>
+      </div>
+      <div class="test reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Profissionalismo, criatividade e resultado. Recomendo de olhos fechados para qualquer empresa séria."</p>
+        <div class="test-author"><div class="avatar">MO</div><div><div class="name">Marina Oliveira</div><div class="role">Sócia, Atelier Marina</div></div></div>
+      </div>
+      <div class="test reveal">
+        <div class="stars">★★★★★</div>
+        <p>"O ROI das campanhas que eles gerenciam é absurdo. Hoje não consigo imaginar marketing sem eles."</p>
+        <div class="test-author"><div class="avatar">RA</div><div><div class="name">Rafael Almeida</div><div class="role">Diretor, Vértice Imóveis</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container contact-wrap">
+    <div class="contact-info reveal">
+      <span class="tag">Contato</span>
+      <h2>Vamos construir sua <span class="gradient-text">próxima conquista</span></h2>
+      <p>Conte sobre seu projeto. Respondemos em até 24 horas.</p>
+      <ul>
+        <li>📧 contato@mfdigital.com.br</li>
+        <li>📱 WhatsApp: (00) 00000-0000</li>
+        <li>📍 Brasil · Atendimento online</li>
+      </ul>
+    </div>
+    <form class="reveal" onsubmit="event.preventDefault();alert('Mensagem enviada! Em breve entraremos em contato.');this.reset();">
+      <div class="field"><label>Nome</label><input type="text" required placeholder="Seu nome" /></div>
+      <div class="field"><label>E-mail</label><input type="email" required placeholder="seu@email.com" /></div>
+      <div class="field"><label>WhatsApp</label><input type="tel" placeholder="(00) 00000-0000" /></div>
+      <div class="field"><label>Serviço de interesse</label>
+        <select><option>Tráfego Pago</option><option>Criação de Sites</option><option>Landing Pages</option><option>Marketing Digital</option><option>Branding</option><option>SEO</option><option>Outro</option></select>
+      </div>
+      <div class="field"><label>Mensagem</label><textarea placeholder="Conte sobre seu projeto..."></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Enviar mensagem →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo"><span class="gradient-text">MF</span> Digital</div>
+        <p style="color:var(--muted);font-size:.9rem;margin-top:14px;max-width:280px">Estratégia, design e tecnologia para transformar o digital da sua marca em uma máquina de vendas.</p>
+        <div class="socials"><a href="#">IG</a><a href="#">IN</a><a href="#">FB</a></div>
+      </div>
+      <div><h4>Serviços</h4><ul><li><a href="#servicos">Tráfego Pago</a></li><li><a href="#servicos">Criação de Sites</a></li><li><a href="#servicos">Landing Pages</a></li><li><a href="#servicos">Branding</a></li><li><a href="#servicos">SEO</a></li></ul></div>
+      <div><h4>Links</h4><ul><li><a href="#sobre">Sobre</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#depoimentos">Depoimentos</a></li><li><a href="#contato">Contato</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="mailto:contato@mfdigital.com.br">contato@mfdigital.com.br</a></li><li><a href="#">WhatsApp</a></li><li>Brasil · Online</li></ul></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> MF Digital. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5500000000000" target="_blank" class="wpp" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-1 1.1c-.2.2-.4.2-.6.1-.8-.4-1.6-.9-2.3-1.5-.5-.5-1-1.1-1.4-1.8-.1-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.7-.5-.6-.7-.6-.2 0-.4 0-.6 0-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4S6.7 13 6.9 13.2c.2.2 2.9 4.4 7 6.1.9.4 1.7.6 2.3.8.9.3 1.7.3 2.4.2.8-.1 2.3-1 2.6-1.8.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+</a>
+
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count up
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting || e.target.dataset.done) return;
+    e.target.dataset.done = 1;
+    const t = +e.target.dataset.count, dur = 1500, start = performance.now();
+    const tick = now => {
+      const p = Math.min((now-start)/dur, 1);
+      e.target.textContent = '+' + Math.round(t * (1-Math.pow(1-p,3)));
+      if (p<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }), {threshold:.4});
+  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+  // Filtros portfolio
+  document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.f;
+    document.querySelectorAll('.project').forEach(p => {
+      p.style.display = (f==='all' || p.dataset.cat===f) ? '' : 'none';
+    });
+  }));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
